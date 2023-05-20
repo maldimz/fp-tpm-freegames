@@ -83,7 +83,9 @@ class _HomePageState extends State<HomePage> {
           ListTile(
             leading: Icon(Icons.upgrade),
             title: Text("Upgrade to Pro"),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.pushNamed(context, RouterName.upgrade),
+            },
           ),
           Divider(),
           ListTile(

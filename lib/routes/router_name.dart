@@ -4,4 +4,5 @@ abstract class RouterName {
   static const homepage = '/home';
   static const detail = '/detail';
   static const bookmark = '/bookmarks';
+  static const upgrade = '/upgrade';
 }
