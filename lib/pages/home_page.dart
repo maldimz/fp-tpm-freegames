@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fp_games/pages/games_page.dart';
+import 'package:fp_games/pages/profile_page.dart';
+import 'package:fp_games/pages/review_page.dart';
 import 'package:fp_games/routes/router_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,14 +38,8 @@ class _HomePageState extends State<HomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     GamesPage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Profile',
-      style: optionStyle,
-    ),
+    ReviewPage(),
+    ProfilePage()
   ];
 
   void _onItemTapped(int index) {
@@ -59,16 +55,24 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
         children: [
           DrawerHeader(
-              child: Column(
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/profile.JPG'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
               ),
-              SizedBox(height: 10),
-              Text(username),
-            ],
-          )),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/profile.JPG'),
+                  ),
+                  SizedBox(height: 10),
+                  Text(username,
+                      style: TextStyle(fontSize: 16, color: Colors.white)),
+                ],
+              )),
           ListTile(
             leading: Icon(Icons.book),
             title: Text("Bookmarks"),
@@ -77,7 +81,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: Icon(Icons.upgrade),
+            title: Text("Upgrade to Pro"),
+            onTap: () => {},
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.logout, color: Colors.red),
             title: Text("Logout"),
             onTap: () async {
               SharedPreferences pref = await SharedPreferences.getInstance();
@@ -90,6 +100,7 @@ class _HomePageState extends State<HomePage> {
         ],
       )),
       appBar: AppBar(
+        elevation: _selectedIndex == 2 ? 0 : 4,
         title: Text(header[_selectedIndex]),
       ),
       body: Container(

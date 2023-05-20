@@ -3,6 +3,7 @@ class UserModel {
   String? username;
   String? email;
   String? password;
+  String? plan;
 
   UserModel({
     required this.username,
@@ -16,6 +17,7 @@ class UserModel {
     map['username'] = username;
     map['email'] = email;
     map['password'] = password;
+    map['plan'] = "Free";
     return map;
   }
 
@@ -24,5 +26,6 @@ class UserModel {
     username = map['username'];
     email = map['email'];
     password = map['password'];
+    plan = map['plan'];
   }
 }

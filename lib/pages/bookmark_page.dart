@@ -13,6 +13,7 @@ class BookmarkPage extends StatefulWidget {
 
 class _BookmarkPageState extends State<BookmarkPage> {
   late int _userId;
+  String _update = "";
 
   Future<void> _getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -47,6 +48,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
               child: Text('No Data'),
             );
           } else {
+            print(snapshot.data.toString());
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
@@ -66,23 +68,27 @@ class _BookmarkPageState extends State<BookmarkPage> {
                     ),
                     title: Text(snapshot.data[index].title),
                     subtitle: Text(snapshot.data[index].shortDescription),
-                    onTap: () {
-                      Navigator.pushNamed(context, RouterName.detail,
-                          arguments: GamesModel(
-                            thumbnail: snapshot.data[index].thumbnail,
-                            shortDescription:
-                                snapshot.data[index].shortDescription,
-                            id: snapshot.data[index].gameId,
-                            title: snapshot.data[index].title,
-                            gameUrl: snapshot.data[index].gameUrl,
-                            genre: snapshot.data[index].genre,
-                            platform: snapshot.data[index].platform,
-                            publisher: snapshot.data[index].publisher,
-                            developer: snapshot.data[index].developer,
-                            releaseDate: snapshot.data[index].releaseDate,
-                            freetogameProfileUrl:
-                                snapshot.data[index].freetogameProfileUrl,
-                          ));
+                    onTap: () async {
+                      var hitPop =
+                          await Navigator.pushNamed(context, RouterName.detail,
+                              arguments: GamesModel(
+                                thumbnail: snapshot.data[index].thumbnail,
+                                shortDescription:
+                                    snapshot.data[index].shortDescription,
+                                id: snapshot.data[index].gamesId,
+                                title: snapshot.data[index].title,
+                                gameUrl: snapshot.data[index].gameUrl,
+                                genre: snapshot.data[index].genre,
+                                platform: snapshot.data[index].platform,
+                                publisher: snapshot.data[index].publisher,
+                                developer: snapshot.data[index].developer,
+                                releaseDate: snapshot.data[index].releaseDate,
+                                freetogameProfileUrl:
+                                    snapshot.data[index].freetogameProfileUrl,
+                              ));
+                      setState(() {
+                        _update = "";
+                      });
                     },
                   );
                 });

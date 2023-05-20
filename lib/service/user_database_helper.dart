@@ -39,6 +39,22 @@ class userDatabaseHelper {
     return users;
   }
 
+  static Future<UserModel> getUsersById(int userId) async {
+    print(userId);
+    UserModel user = UserModel(username: '', email: '', password: '');
+    final db = await DatabaseHelper.instance.database;
+    List<Map> list =
+        await db!.query('$tableName', where: 'id = ?', whereArgs: [userId]);
+
+    print(list);
+    if (list.isEmpty) {
+      return user;
+    }
+    user = UserModel.fromMap(list[0]);
+
+    return user;
+  }
+
   static Future<List<UserModel>> getUserByUsernameAndPassword(
       String username, String password) async {
     final db = await DatabaseHelper.instance.database;
