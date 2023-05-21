@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fp_games/model/user_model.dart';
+import 'package:fp_games/routes/router_name.dart';
 import 'package:fp_games/service/user_database_helper.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -52,6 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(height: 10),
             TextField(
               controller: _passwordController,
+              obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Password',
@@ -60,6 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(height: 10),
             TextField(
               controller: _confirmPasswordController,
+              obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Confirm Password',
@@ -121,9 +124,10 @@ class _RegisterPageState extends State<RegisterPage> {
           });
           return;
         }
-        setState(() {
-          error = "User Created";
-        });
+        final snackBar = SnackBar(content: Text('Register Success!'));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+        Navigator.pushReplacementNamed(context, RouterName.login);
       },
       child: Text('Register'),
     );
