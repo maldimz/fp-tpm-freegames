@@ -10,6 +10,7 @@ Future<void> main() async {
   var userId = prefs.getInt('userId');
   print(userId);
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: 'Final Project',
     theme: ThemeData(
       primarySwatch: Colors.blue,
