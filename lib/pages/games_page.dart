@@ -75,7 +75,6 @@ class _GamesPageState extends State<GamesPage> {
                 }
 
                 if (search != "") {
-                  print(search);
                   List<GamesModel> _searchList = [];
                   for (int i = 0; i < snapshot.data.length; i++) {
                     if (snapshot.data[i].title
