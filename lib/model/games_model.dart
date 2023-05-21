@@ -1,11 +1,3 @@
-// import 'dart:convert';
-
-// List<GamesModel> gamesFromJson(String str) =>
-//     List<GamesModel>.from(json.decode(str).map((x) => GamesModel.fromJson(x)));
-
-// String gamesToJson(List<GamesModel> data) =>
-//     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
 class GamesModel {
   int? id;
   String? title;

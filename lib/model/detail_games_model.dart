@@ -1,15 +1,3 @@
-// To parse this JSON data, do
-//
-//     final detailGamesModel = detailGamesModelFromJson(jsonString);
-
-import 'dart:convert';
-
-DetailGamesModel detailGamesModelFromJson(String str) =>
-    DetailGamesModel.fromJson(json.decode(str));
-
-String detailGamesModelToJson(DetailGamesModel data) =>
-    json.encode(data.toJson());
-
 class DetailGamesModel {
   int? id;
   String? title;
