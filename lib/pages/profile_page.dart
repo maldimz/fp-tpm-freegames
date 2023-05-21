@@ -16,7 +16,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<void> _getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var userId = prefs.getInt('userId');
-    print(userId);
     setState(() {
       _userId = userId!;
     });

@@ -34,19 +34,16 @@ class userDatabaseHelper {
       var user = UserModel.fromMap(item);
       users.add(user);
     }
-    print(users);
 
     return users;
   }
 
   static Future<UserModel> getUsersById(int userId) async {
-    print(userId);
     UserModel user = UserModel(username: '', email: '', password: '');
     final db = await DatabaseHelper.instance.database;
     List<Map> list =
         await db!.query('$tableName', where: 'id = ?', whereArgs: [userId]);
 
-    print(list);
     if (list.isEmpty) {
       return user;
     }

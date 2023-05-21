@@ -48,7 +48,6 @@ class _BookmarkPageState extends State<BookmarkPage> {
               child: Text('No Data'),
             );
           } else {
-            print(snapshot.data.toString());
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,

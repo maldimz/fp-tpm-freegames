@@ -28,7 +28,6 @@ class _DetailGamePageState extends State<DetailGamePage> {
       this.userId = userId!;
     });
     var list = await gamesDatabaseHelper.getGamesByUserId(userId!);
-    // print(list[0].gamesId);
     if (list.any((element) => element.gamesId == widget.gamesModel!.id)) {
       for (var item in list) {
         if (item.gamesId == widget.gamesModel!.id) {

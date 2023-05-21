@@ -15,7 +15,7 @@ class _TimezonePageState extends State<TimezonePage> {
   String _timeWIB = '';
   String _timeWITA = '';
   String _timeWIT = '';
-  String _timeGMT = '';
+  String _timeBST = '';
   String _zoneString = 'WIB';
 
   Duration _getOffset(String zone) {
@@ -24,8 +24,8 @@ class _TimezonePageState extends State<TimezonePage> {
         return const Duration(hours: 8);
       case 'WIT':
         return const Duration(hours: 9);
-      case 'GMT':
-        return const Duration(hours: 0);
+      case 'BST':
+        return const Duration(hours: 1);
       default:
         return const Duration(hours: 7);
     }
@@ -36,7 +36,7 @@ class _TimezonePageState extends State<TimezonePage> {
       DropdownMenuItem(child: Text("Indonesia - WIB"), value: "WIB"),
       DropdownMenuItem(child: Text("Indonesia - WITA"), value: "WITA"),
       DropdownMenuItem(child: Text("Indoensia - WIT"), value: "WIT"),
-      DropdownMenuItem(child: Text("London - GMT"), value: "GMT"),
+      DropdownMenuItem(child: Text("London - BST"), value: "BST"),
     ];
     return menuItems;
   }
@@ -62,7 +62,7 @@ class _TimezonePageState extends State<TimezonePage> {
     final DateTime wibTime = utc.add(_getOffset("WIB"));
     final DateTime witaTime = utc.add(_getOffset("WITA"));
     final DateTime witTime = utc.add(_getOffset("WIT"));
-    final DateTime GMTTime = utc.add(_getOffset("GMT"));
+    final DateTime BSTTime = utc.add(_getOffset("BST"));
     final String formattedLocalTime = _formatDateTime(localTime);
     if (this.mounted) {
       setState(() {
@@ -70,7 +70,7 @@ class _TimezonePageState extends State<TimezonePage> {
         _timeWIB = _FormatTime(wibTime);
         _timeWITA = _FormatTime(witaTime);
         _timeWIT = _FormatTime(witTime);
-        _timeGMT = _FormatTime(GMTTime);
+        _timeBST = _FormatTime(BSTTime);
       });
     }
   }
@@ -173,8 +173,8 @@ class _TimezonePageState extends State<TimezonePage> {
                       'assets/images/london.png',
                       width: 50,
                     ),
-                    title: Text("London - GMT"),
-                    subtitle: Text('${_timeGMT} GMT'),
+                    title: Text("London - BST"),
+                    subtitle: Text('${_timeBST} BST'),
                   ),
                 ),
               ],

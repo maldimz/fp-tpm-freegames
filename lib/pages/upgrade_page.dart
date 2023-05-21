@@ -87,7 +87,6 @@ class _UpgradePageState extends State<UpgradePage> {
                         onPageChanged: (value) {
                           setState(() {
                             _selectedIndex = value;
-                            print('selected index: $_selectedIndex');
                           });
                         },
                         children: [

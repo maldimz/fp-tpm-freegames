@@ -8,7 +8,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var userId = prefs.getInt('userId');
-  print(userId);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Final Project',

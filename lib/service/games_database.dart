@@ -47,12 +47,9 @@ class gamesDatabaseHelper {
     List<GamesModel> games = [];
 
     for (var item in list) {
-      print(item.toString());
       var game = GamesModel.fromMap(item);
       games.add(game);
-      print('gaes ${game.gamesId}');
     }
-    print(games);
 
     return games;
   }

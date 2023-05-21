@@ -19,7 +19,6 @@ class ReviewDatabaseHelper {
     for (var item in list) {
       var review = ReviewModel.fromMap(item);
       reviews.add(review);
-      print(review.toString());
     }
     return reviews;
   }
