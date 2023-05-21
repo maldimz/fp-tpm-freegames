@@ -5,4 +5,5 @@ abstract class RouterName {
   static const detail = '/detail';
   static const bookmark = '/bookmarks';
   static const upgrade = '/upgrade';
+  static const timezone = '/timezone';
 }

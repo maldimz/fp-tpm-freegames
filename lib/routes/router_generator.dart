@@ -5,6 +5,7 @@ import 'package:fp_games/pages/details_game_page.dart';
 import 'package:fp_games/pages/home_page.dart';
 import 'package:fp_games/pages/login_page.dart';
 import 'package:fp_games/pages/register_page.dart';
+import 'package:fp_games/pages/timezone_page.dart';
 import 'package:fp_games/pages/upgrade_page.dart';
 import 'package:fp_games/routes/router_name.dart';
 
@@ -32,6 +33,9 @@ class RouterGenerator {
 
       case RouterName.upgrade:
         return MaterialPageRoute(builder: (_) => UpgradePage());
+
+      case RouterName.timezone:
+        return MaterialPageRoute(builder: (_) => TimezonePage());
 
       default:
         return _errorRoute();

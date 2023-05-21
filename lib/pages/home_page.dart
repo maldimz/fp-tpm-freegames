@@ -89,6 +89,14 @@ class _HomePageState extends State<HomePage> {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.alarm),
+            title: Text("Timezone Access Now"),
+            onTap: () => {
+              Navigator.pushNamed(context, RouterName.timezone),
+            },
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.logout, color: Colors.red),
             title: Text("Logout"),
             onTap: () async {
